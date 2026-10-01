@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0D0F0F;
+  --color-charcoal: #151817;
+  --color-ivory: #F3EFE7;
+  --color-copper: #C4875B;
+  --color-sage: #9BAA9A;
+  --color-warm-gray: #77736C;
+  --color-white: #FFFFFF;
+  
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0D0F0F;
+  color: #F3EFE7;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #F3EFE7;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(243, 239, 231, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-dot.is-hovering {
+  width: 12px;
+  height: 12px;
+  background: #C4875B;
+}
+
+.cursor-ring.is-hovering {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(196, 135, 91, 0.5);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D0F0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4875B;
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(196, 135, 91, 0.3);
+  color: #F3EFE7;
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
+}
+
+/* Typography utilities */
+.font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Horizontal scroll track */
+.tech-scroll-track {
+  display: flex;
+  gap: 3rem;
+  animation: scroll-left 30s linear infinite;
+  width: max-content;
+}
+
+.tech-scroll-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Line reveal animation */
+.line-mask {
+  overflow: hidden;
+  display: block;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .tech-scroll-track {
+    animation: none;
+  }
+}
