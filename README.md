@@ -1,4 +1,6 @@
-# Muhammad Afzaal — Personal Portfolio
+# Muhammad-Afzaal
+
+Muhammad Afzaal Portfolio Website
 
 Premium, production-quality personal portfolio website built with React, TypeScript, Tailwind CSS v4, and Framer Motion.
 
